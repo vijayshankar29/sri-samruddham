@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6a1025">
+<meta name="description" content="House Warming invitation for Sri Samruddham — 15 November 2026, Thudiyalur, Coimbatore.">
+<title>SRI SAMRUDDHAM — Housewarming Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Marcellus&family=Noto+Serif+Tamil:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- PAGE 1: clean opening page. The old Pudhumanai/Puguvizha cover is intentionally removed. -->
+<section class="opening-page" id="invitation" aria-labelledby="opening-title">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <img class="opening-thoran thoran-left" src="assets/thoran.png" alt="" aria-hidden="true">
+  <img class="opening-thoran thoran-right" src="assets/thoran.png" alt="" aria-hidden="true">
+
+  <div class="opening-card">
+    <img class="ganesh" src="assets/ganesh.png" alt="Lord Ganesha">
+    <p class="mantra">॥ Shree Ganeshaya Namaha ॥</p>
+
+    <p class="kicker">With love, gratitude &amp; a heart full of joy</p>
+    <h1 id="opening-title">Housewarming<br>Invitation</h1>
+    <p class="opening-copy">
+      A home becomes truly special when it is filled with the warmth of family and friends.
+      As we begin this new chapter, we would be delighted to celebrate it with you.
+    </p>
+
+    <div class="opening-date" aria-label="Sunday 15 November 2026">
+      <strong>Sunday</strong><span>•</span><strong>15 November 2026</strong>
+    </div>
+
+    <button class="btn btn-primary" id="openInvitation" type="button">Open Invitation</button>
+  </div>
+
+  <img class="opening-cow opening-cow-left" src="assets/komaadha.png" alt="" aria-hidden="true">
+  <img class="opening-cow opening-cow-right" src="assets/komaadha.png" alt="" aria-hidden="true">
+</section>
+
+<!-- Everything below fades in only after Open Invitation is pressed. -->
+<main id="mainInvitation" class="main-invitation" aria-hidden="true">
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#home" aria-label="Sri Samruddham — home">SRI SAMRUDDHAM</a>
+    <nav class="nav" id="navMenu" aria-label="Invitation navigation">
+      <a href="#home">Home</a>
+      <a href="#countdown">Countdown</a>
+      <a href="#venue">Venue</a>
+      <a href="#rsvp">RSVP</a>
+    </nav>
+  </header>
+
+  <section class="section home-section" id="home">
+    <div class="petal-field" aria-hidden="true"></div>
+    <div class="section-inner home-grid">
+      <div class="house-stage reveal">
+        <div class="house-halo"></div>
+        <div class="house-card" id="houseCard">
+          <img src="assets/house-elevation.png" alt="Illustration of the front elevation of Sri Samruddham">
+        </div>
+        <div class="house-shadow"></div>
+      </div>
+
+      <div class="home-copy reveal">
+        <p class="eyebrow">With immense joy</p>
+        <h2>We cordially invite you and your family to the housewarming ceremony of our new home.</h2>
+        <div class="house-name">SRI SAMRUDDHAM</div>
+        <p class="home-subcopy">A new address for old bonds, new memories and countless moments together.</p>
+
+        <div class="event-highlight" aria-label="Housewarming date, time and venue">
+          <div class="event-item"><span>Day</span><strong>Sunday</strong></div>
+          <div class="event-item event-date"><span>Date</span><strong>15 November 2026</strong></div>
+          <div class="event-item"><span>Time</span><strong>6:30 AM onwards</strong></div>
+          <div class="event-place"><span>Venue</span><strong>Thudiyalur, Coimbatore</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section countdown-section" id="countdown">
+    <div class="gold-particles" aria-hidden="true"></div>
+    <div class="section-inner countdown-inner reveal">
+      <p class="eyebrow light">The day is getting closer</p>
+      <h2>A Few More Ticks to the First Knock</h2>
+      <p class="count-caption">We can’t wait to answer it.</p>
+
+      <div class="count-grid" aria-label="Countdown to 15 November 2026">
+        <div class="count-box"><div class="count-num" id="days">--</div><div class="count-label">Days</div></div>
+        <div class="count-box"><div class="count-num" id="hours">--</div><div class="count-label">Hours</div></div>
+        <div class="count-box"><div class="count-num" id="minutes">--</div><div class="count-label">Minutes</div></div>
+        <div class="count-box"><div class="count-num" id="seconds">--</div><div class="count-label">Seconds</div></div>
+      </div>
+
+      <div id="happening" class="happening" hidden>Our doors are open — the celebration is happening now!</div>
+      <div class="quick-links">
+        <a class="btn btn-gold" href="#venue">Venue</a>
+        <a class="btn btn-gold" href="#rsvp">RSVP</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section venue-section" id="venue">    <img class="venue-kolam" src="assets/kolam.png" alt="" aria-hidden="true">
+    <div class="section-inner">
+      <div class="venue-heading reveal">
+        <span class="venue-mini-mark" aria-hidden="true">◆</span>
+        <h2>Venue &amp; the last five minutes</h2>
+        <p class="venue-intro">Everything you need for the final stretch home.</p>
+      </div>
+
+      <div class="venue-grid">
+        <article class="venue-card reveal">
+          <div class="venue-icon" aria-hidden="true">⌖</div>
+          <h3>SRI SAMRUDDHAM</h3>
+          <p>No. 14, Saraswathi Street,<br>Rangammal Layout, Ashokapuram,<br>Thudiyalur, Coimbatore – 641034</p>
+
+          <a class="btn btn-primary map-btn" target="_blank" rel="noopener"
+             href="https://maps.app.goo.gl/KXbrR2yvr3HZgQPYA">Open in Maps</a>
+
+          <div class="bus-cards">
+            <div class="bus-card">
+              <span>From Gandhipuram</span>
+              <strong>111, 124, 4</strong>
+            </div>
+            <div class="bus-card">
+              <span>From Ukkadam</span>
+              <strong>102B, 27A, 26, 32B</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="route-card reveal">
+          <p class="route-kicker">From Thudiyalur Junction</p>
+          <h3>The Last Five Minutes</h3>
+          <div class="route">
+            <div class="route-step"><span>1</span><div><strong>Reach Thudiyalur Junction</strong><p>Begin from Thudiyalur Junction.</p></div></div>
+            <div class="route-step"><span>2</span><div><strong>Take Market Road</strong><p>Enter Market Road from the junction.</p></div></div>
+            <div class="route-step"><span>3</span><div><strong>Continue straight and take left</strong><p>Continue straight along Market Road and take left.</p></div></div>
+            <div class="route-step"><span>4</span><div><strong>Reach Milano Bakery</strong><p>Use Milano Bakery as your landmark.</p></div></div>
+            <div class="route-step"><span>5</span><div><strong>Take the adjacent cut</strong><p>Take the adjacent cut near Milano Bakery and turn left into Saraswathi Street.</p></div></div>
+            <div class="route-step destination"><span>6</span><div><strong>You’re home</strong><p>Continue to No. 14 — welcome to Sri Samruddham.</p></div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rsvp-section" id="rsvp">
+    <img class="rsvp-thoran" src="assets/thoran.png" alt="" aria-hidden="true">
+    <div class="section-inner rsvp-wrap">
+      <div class="rsvp-card reveal">
+        <p class="eyebrow">We would love to know</p>
+        <h2>RSVP</h2>
+        <p class="rsvp-invite"><em>Please let us know you're coming!</em></p>
+
+        <form id="rsvpForm" autocomplete="on">
+          <label class="field-label" for="guestName">Your name</label>
+          <input class="name-input" id="guestName" name="name" autocomplete="name" maxlength="80" required placeholder="Enter your name">
+
+          <!-- Honeypot. Real guests should never fill this. -->
+          <input class="hp" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="rsvp-actions" aria-label="Availability">
+            <button class="rsvp-choice attending" type="button" data-attendance="I'll be there">I’ll make it</button>
+            <button class="rsvp-choice unavailable" type="button" data-attendance="Can't make it">Can’t make it</button>
+          </div>
+          <div class="status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="contact-block">
+          <span>Contact</span>
+          <div class="contact-numbers">
+            <a href="tel:+918428992641">8428992641</a><b>|</b>
+            <a href="tel:+919994796959">9994796959</a><b>|</b>
+            <a href="tel:+919443065088">9443065088</a>
+          </div>
+        </div>
+      </div>
+
+      <img class="rsvp-family" src="assets/family-entrance.png" alt="" aria-hidden="true">
+    </div>
+  </section>
+
+  <footer class="footer">    <img class="footer-kolam" src="assets/kolam.png" alt="" aria-hidden="true">
+    <div class="footer-flourish" aria-hidden="true"><span></span><i>✦</i><span></span></div>
+    <p class="footer-mark">॥ சுபம் ॥</p>
+    <p>May this home always be filled with laughter, warmth, good health and the footsteps of people we love.</p>
+    <strong>SRI SAMRUDDHAM</strong>
+    <small>15 November 2026 · Thudiyalur, Coimbatore</small>
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

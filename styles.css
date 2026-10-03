@@ -1,0 +1,580 @@
+:root{
+  --beige:#f3e6cc;
+  --beige-2:#fbf5e8;
+  --cream:#fffaf0;
+  --burgundy:#681126;
+  --burgundy-deep:#430813;
+  --gold:#c99a3a;
+  --gold-light:#f0cf82;
+  --ink:#4b3028;
+  --muted:#7c675d;
+  --shadow:0 28px 70px rgba(74,39,27,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;background:var(--beige-2);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+button,a,input{font:inherit}
+a{color:inherit}
+button{cursor:pointer}
+.section{position:relative;min-height:100svh;padding:clamp(92px,10vw,138px) clamp(20px,5vw,72px);display:grid;place-items:center;overflow:hidden}
+.section-inner{position:relative;z-index:3;width:min(1160px,100%);margin:auto}
+.eyebrow{margin:0 0 12px;text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:700;color:var(--burgundy)}
+.eyebrow.light{color:var(--gold-light)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:none}
+.btn{min-width:160px;border:1px solid var(--burgundy);border-radius:5px;padding:14px 24px;text-decoration:none;text-align:center;font-weight:700;letter-spacing:.03em;transition:background .28s ease,color .28s ease,transform .28s ease,box-shadow .28s ease}
+.btn-primary{background:transparent;color:var(--burgundy)}
+.btn-primary:hover,.btn-primary:focus-visible{background:var(--burgundy);color:#fff;transform:translateY(-2px);box-shadow:0 12px 30px rgba(104,17,38,.18)}
+.btn-gold{border-color:var(--gold-light);color:var(--gold-light);background:rgba(255,255,255,.02)}
+.btn-gold:hover,.btn-gold:focus-visible{background:var(--gold-light);color:var(--burgundy-deep);transform:translateY(-2px)}
+
+/* Opening */
+.opening-page{position:fixed;inset:0;z-index:1000;min-height:100svh;display:grid;place-items:center;padding:clamp(24px,4vw,54px) 22px;background:
+radial-gradient(circle at 50% 24%,rgba(255,255,255,.58),transparent 26%),
+linear-gradient(145deg,#f7ecd5 0%,#efe0c2 52%,#f8efdd 100%);overflow:hidden;transition:opacity .9s ease,visibility .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.opening-page.exit{opacity:0;visibility:hidden;pointer-events:none;transform:scale(1.018)}
+.opening-card{position:relative;z-index:4;text-align:center;width:min(760px,100%);padding:18px 10px}
+.ganesh{width:clamp(88px,12vw,142px);margin:0 auto 8px;filter:drop-shadow(0 10px 16px rgba(111,65,14,.14));animation:ganeshFloat 5s ease-in-out infinite}
+@keyframes ganeshFloat{50%{transform:translateY(-5px)}}
+.mantra{font-family:"Cormorant Garamond",serif;color:var(--burgundy);font-size:clamp(18px,2.2vw,25px);font-weight:600;letter-spacing:.08em;margin:5px 0}
+.line-ornament{width:min(390px,72vw);height:38px;object-fit:cover;object-position:center;margin:0 auto 4px;mix-blend-mode:multiply}
+.kicker{text-transform:uppercase;letter-spacing:.2em;font-size:10px;font-weight:700;color:#876e59}
+.opening-card h1{font-family:"Cormorant Garamond",serif;color:var(--burgundy);font-size:clamp(52px,8vw,92px);line-height:.88;margin:16px 0 22px}
+.opening-copy{max-width:650px;margin:0 auto 22px;font-family:"Cormorant Garamond",serif;font-size:clamp(19px,2.3vw,27px);line-height:1.45}
+.opening-date{display:flex;justify-content:center;align-items:center;gap:13px;flex-wrap:wrap;width:max-content;max-width:100%;margin:0 auto 24px;padding:13px 20px;border-top:1px solid rgba(201,154,58,.65);border-bottom:1px solid rgba(201,154,58,.65);color:var(--burgundy);text-transform:uppercase;letter-spacing:.12em;font-size:clamp(11px,1.3vw,14px)}
+.opening-date strong{font-weight:800}
+.opening-thoran{position:absolute;top:-3%;width:clamp(120px,18vw,240px);z-index:2;opacity:.88;filter:saturate(.8);transform-origin:top center;animation:thoranSway 6s ease-in-out infinite}
+.thoran-left{left:-3%;transform:rotate(7deg)}
+.thoran-right{right:-3%;transform:scaleX(-1) rotate(7deg);animation-delay:-2.5s}
+@keyframes thoranSway{50%{translate:0 4px;rotate:1.2deg}}
+.opening-cow{position:absolute;right:-2%;bottom:-3%;width:clamp(190px,29vw,390px);opacity:.13;z-index:1;animation:cowBreathe 6s ease-in-out infinite}
+@keyframes cowBreathe{50%{transform:translateY(-4px) scale(1.008)}}
+.opening-kolam{position:absolute;left:-5%;bottom:-11%;width:clamp(250px,38vw,520px);opacity:.06;z-index:1;animation:kolamGlow 5s ease-in-out infinite}
+@keyframes kolamGlow{50%{opacity:.1;filter:drop-shadow(0 0 16px rgba(201,154,58,.5))}}
+.ambient{position:absolute;border-radius:50%;filter:blur(40px);opacity:.25}
+.ambient-one{width:300px;height:300px;background:#e7b64e;left:-150px;top:25%}
+.ambient-two{width:260px;height:260px;background:#7a1730;right:-130px;bottom:15%}
+
+/* Main reveal */
+.main-invitation{opacity:0;visibility:hidden;transition:opacity .85s ease}
+.main-invitation.open{opacity:1;visibility:visible}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;padding:0 clamp(18px,4vw,54px);display:flex;align-items:center;justify-content:space-between;background:rgba(251,245,232,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,154,58,.22);transform:translateY(-100%);transition:transform .65s ease,box-shadow .3s ease}
+.main-invitation.open .site-header{transform:none}
+.site-header.scrolled{box-shadow:0 8px 30px rgba(67,8,19,.08)}
+.brand{font-family:"Marcellus",serif;color:var(--burgundy);font-weight:700;text-decoration:none;letter-spacing:.1em;font-size:clamp(14px,1.8vw,20px);text-shadow:0 0 18px rgba(201,154,58,.32);transition:.25s}
+.brand:hover{color:var(--gold)}
+.nav{display:flex;gap:8px}
+.nav a{position:relative;text-decoration:none;padding:10px 12px;font-size:13px;font-weight:700;color:var(--ink);transition:.25s}
+.nav a:after{content:"";position:absolute;left:12px;right:12px;bottom:5px;height:1px;background:var(--burgundy);transform:scaleX(0);transition:.25s}
+.nav a:hover{color:var(--burgundy)}
+.nav a:hover:after{transform:scaleX(1)}
+.menu-toggle{display:none;border:0;background:transparent;padding:8px}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--burgundy);margin:5px}
+
+/* Home */
+.home-section{background:
+radial-gradient(circle at 12% 18%,rgba(201,154,58,.18),transparent 28%),
+linear-gradient(145deg,#f2e1bf,#f9f0dc 65%,#ead5ad)}
+.home-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(38px,7vw,92px);align-items:center}
+.house-stage{min-height:570px;display:grid;place-items:center;perspective:1200px;position:relative}
+.house-card{position:relative;z-index:3;width:min(470px,92%);transform-style:preserve-3d;transform:rotateY(-7deg) rotateX(2deg) translateZ(18px);transition:transform .18s ease-out;filter:drop-shadow(0 32px 28px rgba(75,43,20,.22))}
+.house-card img{width:100%}
+.house-halo{position:absolute;width:72%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,247,215,.85),rgba(201,154,58,.16) 58%,transparent 72%);filter:blur(3px);animation:haloPulse 4s ease-in-out infinite}
+@keyframes haloPulse{50%{transform:scale(1.06);opacity:.75}}
+.house-shadow{position:absolute;bottom:11%;width:60%;height:40px;border-radius:50%;background:rgba(72,39,18,.14);filter:blur(18px)}
+.home-copy h2{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,5vw,60px);line-height:1.02;margin:0 0 22px;color:#513126;font-weight:600}
+.house-name{font-family:"Marcellus",serif;font-size:clamp(48px,6.8vw,86px);line-height:1.03;color:var(--burgundy);font-weight:700;letter-spacing:.035em;margin:18px 0;text-wrap:balance}
+.home-subcopy{font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.5}
+.event-highlight{display:grid;grid-template-columns:.7fr 1.25fr 1fr;gap:10px;margin-top:26px;padding:14px;border:1px solid rgba(201,154,58,.55);background:rgba(255,250,240,.55);box-shadow:0 0 0 5px rgba(255,255,255,.15),0 14px 36px rgba(104,17,38,.08);animation:eventGlow 3.4s ease-in-out infinite}
+@keyframes eventGlow{50%{box-shadow:0 0 0 5px rgba(255,255,255,.2),0 0 28px rgba(201,154,58,.24)}}
+.event-highlight div{padding:12px 14px;border-right:1px solid rgba(201,154,58,.3)}
+.event-highlight div:last-child{border-right:0}
+.event-highlight span{display:block;text-transform:uppercase;letter-spacing:.16em;font-size:9px;color:#8b725f;margin-bottom:6px}
+.event-highlight strong{font-family:"Cormorant Garamond",serif;font-size:clamp(17px,2vw,24px);color:var(--burgundy)}
+.location-line{margin:16px 0 0;font-weight:700;color:var(--burgundy);letter-spacing:.05em}
+.decor-door{position:absolute;right:-70px;bottom:-110px;width:340px;opacity:.075;transform:rotate(-5deg)}
+
+/* Countdown */
+.countdown-section{background:
+linear-gradient(rgba(62,6,17,.94),rgba(62,6,17,.97)),
+url("assets/burgundy-texture.png") center/cover;color:var(--cream);text-align:center}
+.countdown-inner h2{font-family:"Cormorant Garamond",serif;font-size:clamp(44px,7vw,82px);line-height:.98;margin:8px auto 14px}
+.countdown-inner h3{font-family:"Cormorant Garamond",serif;font-size:clamp(25px,4vw,43px);font-weight:600;line-height:1.12;max-width:850px;margin:0 auto 14px;color:var(--gold-light)}
+.count-caption{font-family:"Cormorant Garamond",serif;font-size:clamp(20px,2.8vw,28px);font-style:italic;opacity:.85}
+.count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:830px;margin:36px auto 20px}
+.count-box{min-width:0;padding:24px 10px 18px;border:1px solid rgba(240,207,130,.35);background:rgba(255,255,255,.035);backdrop-filter:blur(5px)}
+.count-num{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,7vw,76px);line-height:.82;font-variant-numeric:tabular-nums;white-space:nowrap}
+.count-label{display:block;margin-top:16px;font-size:10px;line-height:1.2;letter-spacing:.2em;text-transform:uppercase;color:#efdba8;white-space:nowrap}
+.happening{margin:20px auto;font-family:"Cormorant Garamond",serif;font-size:25px;color:var(--gold-light)}
+.quick-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.gold-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.gold-particles i{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 10px var(--gold-light);opacity:0;animation:rise var(--dur) ease-in-out infinite var(--delay)}
+@keyframes rise{0%,100%{opacity:0;transform:translateY(45px)}35%{opacity:.8}100%{transform:translateY(-120px)}}
+
+/* Venue */
+.venue-section{background:#fffaf0}
+.venue-heading{text-align:center;margin-bottom:42px}
+.venue-heading h2{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,6vw,70px);margin:0;color:var(--burgundy)}
+.small-rule{width:min(320px,70vw);height:30px;object-fit:cover;object-position:center;margin:4px auto 0;mix-blend-mode:multiply}
+.venue-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
+.venue-card,.route-card{border:1px solid #ead7b2;background:#fff;padding:clamp(28px,4vw,44px);box-shadow:var(--shadow)}
+.venue-card{text-align:center;background:linear-gradient(145deg,#f5dfac,#f8ebcc)}
+.venue-icon{font-size:34px;color:var(--burgundy)}
+.venue-card h3,.route-card h3{font-family:"Marcellus",serif;color:var(--burgundy);font-size:clamp(27px,3vw,39px);margin:10px 0 18px}
+.venue-card p{line-height:1.8}
+.map-btn{display:inline-flex;margin:10px auto 26px}
+.bus-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bus-card{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:142px;padding:16px;border:1px solid rgba(104,17,38,.18);background:rgba(255,255,255,.48)}
+.bus-symbol{font-size:28px;margin-bottom:8px}
+.bus-card span{font-size:11px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.bus-card strong{font-size:18px;color:var(--burgundy)}
+.route-card{position:relative;overflow:hidden}
+.route-kicker{text-transform:uppercase;letter-spacing:.17em;font-size:10px;color:#8b725f;margin:0}
+.route{position:relative;margin-top:28px}
+.route:before{content:"";position:absolute;left:18px;top:19px;bottom:26px;width:1px;background:linear-gradient(var(--gold),var(--burgundy))}
+.route-step{position:relative;display:grid;grid-template-columns:38px 1fr;gap:18px;margin-bottom:24px}
+.route-step>span{position:relative;z-index:2;width:37px;height:37px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--gold);color:var(--burgundy);font-weight:800}
+.route-step strong{font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--burgundy)}
+.route-step p{margin:3px 0 0;line-height:1.6;color:#735e54}
+.route-step.destination>span{background:var(--burgundy);color:#fff;border-color:var(--burgundy)}
+
+/* RSVP */
+.rsvp-section{background:
+linear-gradient(rgba(71,8,20,.90),rgba(71,8,20,.94)),
+url("assets/burgundy-texture.png") center/cover;color:var(--cream)}
+.rsvp-wrap{display:grid;grid-template-columns:1fr .8fr;gap:clamp(20px,5vw,60px);align-items:end}
+.rsvp-card{position:relative;z-index:3;background:rgba(255,250,240,.97);color:var(--ink);padding:clamp(30px,5vw,56px);box-shadow:0 34px 80px rgba(0,0,0,.22)}
+.rsvp-card h2{font-family:"Cormorant Garamond",serif;color:var(--burgundy);font-size:clamp(48px,7vw,76px);margin:0 0 10px}
+.rsvp-card>p{line-height:1.7}
+.field-label{display:block;margin-top:28px;text-transform:uppercase;letter-spacing:.14em;font-size:10px;font-weight:700;color:#846d61}
+.name-input{width:100%;border:0;border-bottom:1px solid #c7ae86;background:transparent;padding:14px 2px;font-size:18px;outline:none;color:var(--ink)}
+.name-input:focus{border-color:var(--burgundy)}
+.rsvp-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.rsvp-choice{border:1px solid var(--burgundy);border-radius:5px;background:transparent;color:var(--burgundy);padding:15px 16px;font-weight:800;transition:.25s}
+.rsvp-choice:hover,.rsvp-choice:focus-visible{background:var(--burgundy);color:#fff;transform:translateY(-2px)}
+.rsvp-choice[disabled]{opacity:.55;cursor:wait}
+.status{min-height:25px;margin-top:14px;font-size:13px;font-weight:700}
+.status.success{color:#2f6b43}.status.error{color:#a22b35}
+.contact-block{display:flex;gap:12px 18px;align-items:center;flex-wrap:wrap;margin-top:28px;padding-top:20px;border-top:1px solid #e2d1b5}
+.contact-block span{text-transform:uppercase;letter-spacing:.14em;font-size:10px;font-weight:700}
+.contact-block a{text-decoration:none;color:var(--burgundy);font-weight:800}
+.rsvp-family{position:relative;z-index:2;width:min(470px,100%);justify-self:center;filter:drop-shadow(0 28px 28px rgba(0,0,0,.22));animation:familyFloat 6s ease-in-out infinite}
+@keyframes familyFloat{50%{transform:translateY(-5px)}}
+.rsvp-thoran{position:absolute;right:-3%;top:-12%;width:300px;opacity:.22;transform:rotate(-5deg);transform-origin:top center;animation:thoranSway 6s ease-in-out infinite}
+.hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important}
+
+/* Footer */
+.footer{text-align:center;padding:66px 22px 76px;background:#2e0811;color:#f8e9c8}
+.footer-rule{width:min(420px,72vw);height:34px;object-fit:cover;object-position:center;margin:0 auto 5px;filter:brightness(1.25);mix-blend-mode:screen}
+.footer-mark{font-family:"Cormorant Garamond",serif;color:var(--gold-light);font-size:25px;margin:5px}
+.footer>p:not(.footer-mark){max-width:680px;margin:10px auto 20px;font-family:"Cormorant Garamond",serif;font-size:23px;line-height:1.5}
+.footer strong{display:block;font-family:"Marcellus",serif;letter-spacing:.12em;color:var(--gold-light)}
+.footer small{display:block;margin-top:8px;opacity:.62}
+
+@media (max-width:900px){
+  .home-grid,.venue-grid,.rsvp-wrap{grid-template-columns:1fr}
+  .home-copy{text-align:center}
+  .house-stage{min-height:440px}
+  .event-highlight{max-width:650px;margin-left:auto;margin-right:auto}
+  .rsvp-family{width:min(390px,82%);margin-top:-25px}
+  .opening-cow{opacity:.08}
+}
+@media (max-width:720px){
+  .section{padding-left:18px;padding-right:18px}
+  .site-header{height:66px}
+  .menu-toggle{display:block}
+  .nav{position:absolute;top:66px;left:12px;right:12px;display:grid;gap:0;padding:10px;background:rgba(255,250,240,.98);border:1px solid #ead7b2;box-shadow:0 18px 40px rgba(67,8,19,.12);opacity:0;transform:translateY(-8px);visibility:hidden;transition:.25s}
+  .nav.open{opacity:1;transform:none;visibility:visible}
+  .nav a{padding:13px}
+  .house-name{text-align:center;font-size:clamp(39px,11vw,60px);letter-spacing:.02em}
+  .event-highlight{grid-template-columns:1fr}
+  .event-highlight div{border-right:0;border-bottom:1px solid rgba(201,154,58,.3)}
+  .event-highlight div:last-child{border-bottom:0}
+  .count-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .count-box{padding:21px 7px 16px}
+  .count-num{font-size:clamp(43px,15vw,62px)}
+  .count-label{font-size:9px;letter-spacing:.16em}
+  .bus-cards,.rsvp-actions{grid-template-columns:1fr}
+  .opening-thoran{width:145px;opacity:.58}
+  .opening-cow{width:250px;right:-90px}
+  .opening-kolam{width:300px;left:-115px}
+  .opening-card{padding-top:4px}
+  .opening-copy{font-size:19px;max-width:560px}
+  .opening-date{gap:8px;padding:10px 12px;letter-spacing:.08em}
+}
+@media (max-height:760px) and (min-width:700px){
+  .ganesh{width:86px}
+  .opening-card h1{font-size:58px;margin:10px 0 14px}
+  .opening-copy{font-size:19px;margin-bottom:14px}
+  .opening-date{margin-bottom:15px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+
+
+/* ===== v3 refinements ===== */
+
+/* True transparent ornament PNG: no blending trick is required anymore. */
+.line-ornament,.small-rule,.footer-rule{mix-blend-mode:normal}
+
+/* Kamadhenu pair — original direction on the left, mirrored on the right. */
+.opening-cow{
+  bottom:-2%;
+  width:clamp(170px,25vw,340px);
+  opacity:.17;
+  z-index:2;
+  filter:drop-shadow(0 15px 25px rgba(80,40,15,.08));
+}
+.opening-cow-left{left:-2%;right:auto;transform:none}
+.opening-cow-right{right:-2%;left:auto;transform:scaleX(-1)}
+.opening-cow-left{animation:cowBreatheLeft 6s ease-in-out infinite}
+.opening-cow-right{animation:cowBreatheRight 6.4s ease-in-out infinite -2s}
+@keyframes cowBreatheLeft{50%{transform:translateY(-5px) scale(1.008)}}
+@keyframes cowBreatheRight{0%,100%{transform:scaleX(-1)}50%{transform:scaleX(-1) translateY(-5px) scale(1.008)}}
+
+/* Home event information: larger, clearer, with a restrained living highlight. */
+.event-highlight{
+  grid-template-columns:.72fr 1.35fr 1fr;
+  gap:0;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(159,112,28,.55);
+  background:linear-gradient(135deg,rgba(255,251,240,.88),rgba(244,224,184,.72));
+  box-shadow:0 14px 34px rgba(104,17,38,.08);
+  animation:eventBreathe 4.8s ease-in-out infinite;
+}
+.event-item{
+  min-height:105px;
+  padding:19px 18px!important;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.event-highlight span{
+  font-size:10px;
+  letter-spacing:.18em;
+  font-weight:700;
+  color:#8a6a46;
+}
+.event-highlight strong{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(22px,2.25vw,30px);
+  line-height:1.08;
+  font-weight:700;
+  color:var(--burgundy);
+}
+.event-date strong{font-size:clamp(23px,2.4vw,32px)}
+.event-place{
+  grid-column:1/-1;
+  padding:13px 18px 15px;
+  text-align:center;
+  border-top:1px solid rgba(201,154,58,.34);
+  background:rgba(104,17,38,.045);
+}
+.event-place span{display:inline;margin-right:11px}
+.event-place strong{
+  font-family:"DM Sans",sans-serif;
+  font-size:clamp(14px,1.6vw,18px);
+  letter-spacing:.04em;
+}
+@keyframes eventBreathe{
+  0%,100%{box-shadow:0 14px 34px rgba(104,17,38,.08),0 0 0 rgba(201,154,58,0)}
+  50%{box-shadow:0 16px 38px rgba(104,17,38,.11),0 0 24px rgba(201,154,58,.16)}
+}
+
+/* Countdown typography — intentionally uncluttered. */
+.countdown-inner h2{
+  max-width:900px;
+  font-family:"Cormorant Garamond",serif;
+  font-weight:600;
+  letter-spacing:-.018em;
+  text-wrap:balance;
+}
+.count-caption{
+  margin-top:18px;
+  color:#f3dfad;
+  letter-spacing:.01em;
+}
+
+/* Bus cards: no emoji, with a slow active/fade emphasis. */
+.bus-card{
+  position:relative;
+  overflow:hidden;
+  min-height:132px;
+  animation:busCardPulse 5.6s ease-in-out infinite;
+}
+.bus-card:nth-child(2){animation-delay:-2.8s}
+.bus-card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border:1px solid transparent;
+  pointer-events:none;
+  transition:.3s;
+}
+@keyframes busCardPulse{
+  0%,100%{
+    background:rgba(255,255,255,.42);
+    border-color:rgba(104,17,38,.16);
+    box-shadow:0 4px 14px rgba(104,17,38,.02);
+    transform:translateY(0)
+  }
+  45%,55%{
+    background:rgba(255,250,237,.88);
+    border-color:rgba(201,154,58,.62);
+    box-shadow:0 12px 28px rgba(104,17,38,.10),0 0 18px rgba(201,154,58,.15);
+    transform:translateY(-2px)
+  }
+}
+.bus-card strong{font-size:20px;letter-spacing:.035em}
+
+/* RSVP refinement. */
+.rsvp-invite{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(20px,2.2vw,26px);
+  color:#6c4c3f;
+  margin-top:2px;
+}
+.contact-block{align-items:flex-start}
+.contact-numbers{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.contact-numbers b{font-weight:400;color:#b69868}
+.contact-numbers a{white-space:nowrap}
+
+/* Kolam is used as a quiet traditional texture, not a dominant graphic. */
+.venue-kolam{
+  position:absolute;
+  width:clamp(310px,46vw,650px);
+  right:-13%;
+  bottom:-22%;
+  opacity:.025;
+  pointer-events:none;
+  transform:rotate(-8deg);
+}
+.footer{position:relative;overflow:hidden}
+.footer-kolam{
+  position:absolute;
+  width:360px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) rotate(45deg);
+  opacity:.025;
+  pointer-events:none;
+}
+.footer>*:not(.footer-kolam){position:relative;z-index:1}
+
+@media(max-width:720px){
+  .opening-cow{width:210px;bottom:-1%;opacity:.12}
+  .opening-cow-left{left:-78px}
+  .opening-cow-right{right:-78px}
+  .event-highlight{grid-template-columns:1fr}
+  .event-item{min-height:auto;padding:15px 14px!important;border-right:0!important;border-bottom:1px solid rgba(201,154,58,.28)!important}
+  .event-place{grid-column:auto;border-top:0;padding:15px 12px}
+  .event-place span{display:block;margin:0 0 5px}
+  .event-highlight strong{font-size:25px}
+  .event-date strong{font-size:28px}
+  .contact-block{display:block}
+  .contact-numbers{margin-top:10px;gap:7px}
+  .venue-kolam{width:420px;right:-55%;bottom:-8%;opacity:.022}
+}
+
+
+/* ===== v4 refinements ===== */
+
+/* Opening page: intentionally symmetrical and free of the former kolam/ornament. */
+.opening-card .mantra{margin-bottom:18px}
+.opening-cow-left{left:-2%;right:auto}
+.opening-cow-right{right:-2%;left:auto}
+.thoran-left{left:0}
+.thoran-right{right:0}
+
+/* Home invitation line is secondary to the house name and event details. */
+.home-copy > h2{
+  font-size:clamp(22px,2.45vw,31px);
+  line-height:1.32;
+  font-weight:600;
+  max-width:720px;
+}
+
+/* Event information: stable numerals, clean alignment and a more contemporary readable face. */
+.event-highlight strong{
+  font-family:"DM Sans",sans-serif;
+  font-variant-numeric:tabular-nums lining-nums;
+  font-feature-settings:"tnum" 1,"lnum" 1;
+  letter-spacing:-.025em;
+  line-height:1.12;
+}
+.event-item{
+  align-items:center;
+  text-align:center;
+}
+.event-item strong{
+  display:flex;
+  min-height:2.25em;
+  align-items:center;
+  justify-content:center;
+}
+.event-date strong{letter-spacing:-.035em}
+.event-place strong{
+  font-family:"DM Sans",sans-serif;
+  font-variant-numeric:lining-nums;
+}
+
+/* Venue heading: replace the removed eyebrow/ornament with a quiet geometric accent. */
+.venue-heading{padding-top:2px}
+.venue-mini-mark{
+  display:block;
+  color:var(--gold);
+  font-size:12px;
+  margin:0 auto 11px;
+  animation:miniMarkGlow 3.8s ease-in-out infinite;
+}
+.venue-intro{
+  margin:10px auto 0;
+  max-width:520px;
+  color:#846e61;
+  font-family:"Cormorant Garamond",serif;
+  font-size:19px;
+  font-style:italic;
+}
+@keyframes miniMarkGlow{
+  0%,100%{opacity:.48;transform:scale(.88)}
+  50%{opacity:1;transform:scale(1.08)}
+}
+
+/* RSVP contact label and numbers share one baseline. */
+.contact-block{
+  display:flex;
+  align-items:center;
+  gap:12px 18px;
+}
+.contact-block > span{
+  line-height:1;
+  padding-top:1px;
+}
+.contact-numbers{
+  display:flex;
+  align-items:center;
+  line-height:1;
+}
+
+/* Footer uses a CSS flourish instead of the removed golden image ornament. */
+.footer-flourish{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:min(300px,70vw);
+  margin:0 auto 7px;
+  color:var(--gold-light);
+  opacity:.78;
+}
+.footer-flourish span{
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,transparent,currentColor);
+}
+.footer-flourish span:last-child{
+  background:linear-gradient(90deg,currentColor,transparent);
+}
+.footer-flourish i{font-style:normal;font-size:10px}
+
+/* There are exactly four destinations, so mobile keeps a visible navigation bar. */
+@media (max-width:720px){
+  .site-header{
+    height:auto;
+    min-height:66px;
+    padding:8px 12px 7px;
+    display:grid;
+    grid-template-columns:1fr;
+    justify-items:center;
+    gap:5px;
+  }
+  .brand{
+    font-size:13px;
+    line-height:1.1;
+    padding-top:2px;
+  }
+  .menu-toggle{display:none!important}
+  .nav{
+    position:static;
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:3px;
+    padding:0;
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    opacity:1;
+    transform:none;
+    visibility:visible;
+  }
+  .nav a{
+    padding:7px 2px 8px;
+    text-align:center;
+    font-size:10px;
+    letter-spacing:.015em;
+    border-radius:3px;
+  }
+  .nav a:after{
+    left:18%;
+    right:18%;
+    bottom:3px;
+  }
+
+  .home-copy > h2{
+    font-size:21px;
+    line-height:1.38;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .event-highlight strong{
+    font-size:23px;
+    min-height:auto;
+  }
+  .event-date strong{font-size:25px}
+
+  /* RSVP artwork remains visible but scales and seats naturally below the card. */
+  .rsvp-wrap{
+    gap:8px;
+    align-items:center;
+  }
+  .rsvp-family{
+    width:min(94vw,430px);
+    max-height:46vh;
+    object-fit:contain;
+    object-position:center bottom;
+    margin:4px auto -2px;
+    justify-self:center;
+  }
+  .rsvp-thoran{
+    width:190px;
+    right:-55px;
+    top:-4%;
+    opacity:.13;
+  }
+  .contact-block{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    text-align:center;
+  }
+  .contact-numbers{
+    justify-content:center;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+}
+
+@media (max-width:420px){
+  .nav a{font-size:9px;padding-left:0;padding-right:0}
+  .contact-block{flex-direction:column;gap:9px}
+  .rsvp-family{width:min(98vw,390px);max-height:42vh}
+}
